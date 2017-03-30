@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour {
     {
         Instantiate(projectile);
     }
+
 	// Use this for initialization
 	void Start () {
 		
