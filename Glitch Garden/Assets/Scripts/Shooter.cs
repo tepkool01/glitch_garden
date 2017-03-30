@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour {
 
-    public GameObject projectile, projectileParent;
+    public GameObject projectile, projectileParent, gun;
 
     private void Fire()
     {
-        Instantiate(projectile);
+        GameObject newProjectile = Instantiate (projectile) as GameObject;
+        newProjectile.transform.parent = projectileParent.transform;
+        newProjectile.transform.position = gun.transform.position;
     }
 
 	// Use this for initialization
