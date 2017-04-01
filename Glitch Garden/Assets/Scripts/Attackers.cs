@@ -16,7 +16,7 @@ public class Attackers : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name + " trigger entered.");
+       // Debug.Log(other.name + " trigger entered.");
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class Attackers : MonoBehaviour {
     // called from animation at time of actual attack/damage
     public void strikeCurrentTarget(float damage)
     {
-        Debug.Log("Doing damage: " + damage);
+        //Debug.Log("Doing damage: " + damage);
 
         if (currentTarget)
         {
