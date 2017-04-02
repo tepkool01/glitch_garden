@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour {
 
-    public GameObject projectile, projectileParent, gun;
+    public GameObject projectile, gun;
+    private GameObject projectileParent;
+
+    void Start()
+    {
+        projectileParent = GameObject.Find("Projectiles");
+
+        if (projectileParent == null)
+        {
+            projectileParent = new GameObject("Projectiles");
+
+        }
+
+    }
 
     private void Fire()
     {
@@ -12,14 +25,4 @@ public class Shooter : MonoBehaviour {
         newProjectile.transform.parent = projectileParent.transform;
         newProjectile.transform.position = gun.transform.position;
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
