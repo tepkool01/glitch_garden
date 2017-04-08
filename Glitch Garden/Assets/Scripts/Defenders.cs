@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Defenders : MonoBehaviour {
 
+    private StarDisplay starDisplay;
+
 	// Use this for initialization
 	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        starDisplay = GameObject.FindObjectOfType<StarDisplay>();
 	}
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void AddStars (int amount)
     {
-        //Debug.Log(other.name + " trigger entered.");
+        starDisplay.AddStars(amount);
     }
 }
