@@ -7,11 +7,13 @@ using UnityEngine.UI;
 public class StarDisplay : MonoBehaviour {
 
     private Text myText;
-    private int stars = 0;
+    private int stars = 100;
+    public enum Status { SUCCESS, FAILURE };
 
 	// Use this for initialization
 	void Start () {
         myText = this.GetComponent<Text>();
+        this.UpdateDisplay();
 	}
 
     public void AddStars (int amount)
@@ -20,10 +22,18 @@ public class StarDisplay : MonoBehaviour {
         this.UpdateDisplay();
     }
 
-    public void UseStars (int amount)
+    public Status UseStars (int amount)
     {
-        stars -= amount;
-        this.UpdateDisplay();
+        if (stars >= amount)
+        {
+            stars -= amount;
+            this.UpdateDisplay();
+            return Status.SUCCESS;
+        } else
+        {
+            return Status.FAILURE;
+        }
+        
     }
 
     private void UpdateDisplay()
