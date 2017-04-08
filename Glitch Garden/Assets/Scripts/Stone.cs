@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = this.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Attackers attacker = collision.gameObject.GetComponent<Attackers>();
+
+        if (attacker)
+        {
+            animator.SetTrigger("underAttack trigger");
+        }
+    }
 }
